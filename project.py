@@ -37,12 +37,6 @@ def main():
         if user_number == "":
             break
         user_number = int(user_number)
-        '''user_answer1 = input("Would you like to have coffee break with your colleagues today at 3pm? yes or no: ")
-        if user_answer1 == "no":
-            break
-        elif user_answer1 == "":
-            break
-        user_number = int(input("What is your employee number? "))'''
         print("Group names: ")
         print(group_names)
         print("Assign employees in groups of 4: ")
@@ -56,25 +50,9 @@ def main():
     img_gd = SimpleImage("GoodDay.jpg")
     img_gd.show()
 
-
-'''def show_group1(your_group, picture_dict):
-    image1 = SimpleImage(picture_dict[your_group[1]])
-    image2 = SimpleImage(picture_dict[your_group[2]])
-    image3 = SimpleImage(picture_dict[your_group[3]])
-    image4 = SimpleImage("GoodTime.jpg")
-    image1.show()
-    image2.show()
-    image3.show()
-    image4.show()'''
-
 def show_group(your_group, signup_dict, picture_dict):
     popup = tk.Tk()
     popup.geometry('1000x700')
-    '''background_image = tk.PhotoImage("coffee_beans1.jpg")
-    background_label = tk.Label(mage=background_image)
-    background_label.place(x=0, y=0, relwidth=1, relheight=1)
-    #background_label.image = background_image
-    background_label.pack()'''
     myfont = font.Font(family='Calibri', size=40)
     message1 = tk.Label(text="You are in Group " + str(your_group[0]) + " :)\nHave fun with ",
                        width=60, height=3)
@@ -142,10 +120,6 @@ def user_input_popup():
     greeting.pack()
     Greeting.pack()
 
-    '''def make_cmd(entry, popup):
-        entry.get()
-        popup.destroy'''
-
     Button = tk.Frame()
     '''button1 = tk.Button(master=Button, text="Why not!", width=10, height=2, bg="#FFC0CB", bd=5)
     button1['font'] = myFont'''
@@ -179,53 +153,8 @@ def user_input_popup():
                         bd=5, command=callback)
     button3['font'] = myFont1
     button3.pack(pady=20)
-
-    '''def printtext():
-        global e
-        global string
-        string = e.get()
-        text.insert(INSERT, string)
-        root = Tk()
-        root.title('Name')
-        text = Text(root)
-        e = Entry(root)
-        e.pack()
-        e.focus_set()
-        b = Button(root, text='okay', command=printtext)
-        text.pack()
-        b.pack(side='bottom')'''
-    '''user_number = simpledialog.askstring(title="Test",
-                                         prompt="What's your Name?:")
-    print("Hello", user_number)'''
     popup.mainloop()  # this comes at the end of the code
     return var.get()
-
-'''def user_input_dialog7():
-    class EntrySampleGetValue(ttk.Frame):
-        def __init__(self, master):
-            super().__init__(master)
-            self.entry_variable = StringVar()
-            self.createWidgets()
-            self.pack()
-
-        def createWidgets(self):
-            self.entry = ttk.Entry(self,textvariable = self.entry_variable)
-            self.entry.pack()
-            button = ttk.Button(self,text="print",command=self.getEntryText)
-            button.pack()
-
-        def getEntryText(self):
-            print("get variable:",self.entry_variable.get())
-            print("get entry value:",self.entry.get())
-
-    if __name__ == '__main__':
-        master = tk.Tk()
-        master.title("EntrySampleGetValue")
-        master.geometry("300x50")
-        EntrySampleGetValue(master)
-        master.mainloop()
-
-    return entry.get()'''
 
 def search_group(user_number, final_group):
     '''
@@ -233,16 +162,6 @@ def search_group(user_number, final_group):
     and returns the group number
     :param user_number:
     :return group number that the user is belong to:
-
-    l = list()
-    for key, value in final_group.iteritems():
-        if user_number in value:
-            l.append(key)
-    return l
-    for key, value in final_group.items():
-        if user_number == value:
-            print(key)
-        print('key does not exist')
     '''
     pre_your_group = ([key for key, value in final_group.items() if user_number in value])
     pre_your_group.append(final_group[pre_your_group[0]])
@@ -254,9 +173,6 @@ def search_group(user_number, final_group):
         else:
             your_group.append(i)
     your_group.remove(user_number)
-    '''for sublist in pre_your_group[0]:
-        for item in pre_your_group[1]:
-            your_group.append(item)'''
     return your_group
 
 def assign_members_group(group_names, same_group):
